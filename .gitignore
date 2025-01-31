@@ -4,6 +4,8 @@
 .env.test.local
 .env.production.local
 .env.local
+frontend/.env
+backend/.env
 
 # Dependency directories (Dipendenze Node.js)
 node_modules/

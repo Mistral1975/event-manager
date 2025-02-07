@@ -40,4 +40,17 @@ const verifyToken = (token) => {
   }
 };
 
-export default { generateTokens, verifyToken };
+// Funzione per generare un nuovo Access Token usando il Refresh Token
+const refreshAccessToken = (refreshToken) => {
+  try {
+    const decoded = verifyToken(refreshToken);
+    return generateToken(
+      { email: decoded.email, _id: decoded.subject },
+      config.auth.jwtExpiration
+    );
+  } catch (error) {
+    throw new UnauthorizedException("Refresh Token non valido o scaduto");
+  }
+};
+
+export default { generateTokens, verifyToken, refreshAccessToken };

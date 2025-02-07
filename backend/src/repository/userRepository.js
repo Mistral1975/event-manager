@@ -9,13 +9,13 @@ const findUserByEmail = async (email) => {
   return user;
 };
 
-/* const findUserById = async (id) => {
+const findUserById = async (id) => {
   const user = await User.findById(id).select("-password");
   if (!user) {
-    throw new Error("Unauthorized: User not found");
+    throw new UnauthorizedException("Utente non trovato");
   }
   return user;
-}; */
+};
 
 const createUser = async (userData) => {
   try {
@@ -30,6 +30,6 @@ const createUser = async (userData) => {
 
 export default {
   findUserByEmail,
-  //findUserById,
+  findUserById,
   createUser,
 };

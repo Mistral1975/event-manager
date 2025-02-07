@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 //import { privateKey, publicKey } from "../../config.js";
-import config from "../../config.js";
+import config from "../config/config.js";
 import UnauthorizedException from "../exceptions/UnauthorizedException.js";
 
 // Genera un JWT firmato con chiave privata RSA

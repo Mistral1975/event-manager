@@ -1,13 +1,8 @@
-import fs from "fs";
-import path from "path";
 import dotenv from "dotenv";
+import { privateKey, publicKey } from "./keys.js";
 
 // 🔹 Carichiamo le variabili d’ambiente
 dotenv.config();
-
-// 🔹 Leggiamo le chiavi RSA dai file .pem
-const privateKey = fs.readFileSync(path.resolve("keys/private.pem"), "utf8");
-const publicKey = fs.readFileSync(path.resolve("keys/public.pem"), "utf8");
 
 export default {
   app: {

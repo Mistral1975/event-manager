@@ -1,12 +1,12 @@
-/* import {login} from '../services/userService.js';
-import userNormalizer from '../normalizer/userNormalizer.js';
+import loginService from "../services/loginService.js";
 
-export default async (req, res) => {
-    try {
-        const user = await login(req.body.email, req.body.password);
-        //console.log(user);
-        res.status(200).json(userNormalizer(user));
-    } catch(err) {
-        res.status(err.status || 500).json({message: err.message, code:err.code} )
-    }
-} */
+const loginController = async (req, res) => {
+  try {
+    const tokens = await loginService.login(req.body.email, req.body.password);
+    res.status(200).json(tokens);
+  } catch (err) {
+    res.status(err.statusCode || 500).json({ message: err.message });
+  }
+};
+
+export default loginController;

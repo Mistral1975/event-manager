@@ -1,14 +1,21 @@
-import cryptoUtils from "../utils/cryptoUtils.js";
+import tokenService from "../services/tokenService.js";
 
 const authMiddleware = (req, res, next) => {
-  const token = req.header("Authorization");
-  if (!token) return res.status(401).json({ message: "Accesso negato" });
+  const authHeader = req.header("Authorization");
+
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res
+      .status(401)
+      .json({ message: "Accesso negato, token mancante o non valido" });
+  }
+
+  const token = authHeader.split(" ")[1]; // Estraggo solo il token dopo "Bearer "
 
   try {
-    req.user = cryptoUtils.verifyJwt(token);
-    next();
+    req.user = tokenService.verifyToken(token);
+    next(); // Passa al prossimo middleware o controller
   } catch (error) {
-    res.status(401).json({ message: "Token non valido" });
+    res.status(401).json({ message: "Token non valido o scaduto" });
   }
 };
 

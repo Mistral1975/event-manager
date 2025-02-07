@@ -7,13 +7,13 @@ const login = async (email, password) => {
   // Cerchiamo l'utente nel database
   const user = await userRepository.findUserByEmail(email);
   if (!user) {
-    throw new UnauthorizedException("Credenziali non valide", 100201);
+    throw new UnauthorizedException("Credenziali non valide");
   }
 
   // Verifichiamo se la password è corretta
-  const isValid = await cryptoUtils.compare(password, user.password);
+  const isValid = await cryptoUtils.comparePassword(password, user.password);
   if (!isValid) {
-    throw new UnauthorizedException("Credenziali non valide", 100201);
+    throw new UnauthorizedException("Credenziali non valide");
   }
 
   // Generiamo i token di accesso
@@ -25,9 +25,10 @@ const login = async (email, password) => {
     name: user.name,
     email: user.email,
     isAdmin: user.isAdmin,
-    status: user.status,
-    accessToken: tokens.accessToken,
-    refreshToken: tokens.refreshToken,
+    //status: user.status,
+    //accessToken: tokens.accessToken,
+    //refreshToken: tokens.refreshToken,
+    tokens,
   };
 };
 

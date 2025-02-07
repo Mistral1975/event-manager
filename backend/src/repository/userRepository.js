@@ -1,7 +1,12 @@
 import User from "../schema/userSchema.js";
+import UnauthorizedException from "../exceptions/UnauthorizedException.js";
 
 const findUserByEmail = async (email) => {
-  return await User.findOne({ email: email });
+  const user = await User.findOne({ email });
+  if (!user) {
+    throw new UnauthorizedException("Credenziali non valide");
+  }
+  return user;
 };
 
 /* const findUserById = async (id) => {

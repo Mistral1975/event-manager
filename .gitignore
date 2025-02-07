@@ -138,3 +138,7 @@ dist
 .vscode/
 .idea/
 *.swp
+
+# Esclude le chiavi private/public per la sicurezza (RSA keys)
+# Evitiamo di caricare le chiavi nel repository per proteggere l'accesso ai token JWT
+/backend/keys/

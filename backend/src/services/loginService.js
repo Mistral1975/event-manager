@@ -17,7 +17,7 @@ const login = async (email, password) => {
   }
 
   // Generiamo i token di accesso
-  const tokens = tokenService.generateTokens(user);
+  const tokens = await tokenService.generateTokens(user);
 
   // Evitiamo di restituire password e dati sensibili
   return {

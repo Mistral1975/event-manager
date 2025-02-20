@@ -33,14 +33,16 @@ const register = async (content) => {
   // Se vogliamo gestire la conferma email, possiamo inviare il link qui
   // await sendRegistrationMail(content.email, buildRegistrationLink(result._id, userData.registrationToken));
 
-  return {
+  /* return {
     _id: user._id,
     name: user.name,
     email: user.email,
     status: user.status,
     accessToken: tokens.accessToken,
     refreshToken: tokens.refreshToken,
-  };
+  }; */
+
+  return { user, tokens }; // ✅ Ora restituiamo l'oggetto user e tokens
 };
 
-export { register };
+export default { register };

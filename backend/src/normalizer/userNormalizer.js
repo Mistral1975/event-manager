@@ -1,12 +1,19 @@
-export default (user) => {
-  const out = {
-    email: user.email,
-    displayName: user.displayName,
+const userNormalizer = (user, tokens = null) => {
+  const normalizedUser = {
     _id: user._id,
+    name: user.name,
+    email: user.email,
+    isAdmin: user.isAdmin,
+    createdAt: user.createdAt,
   };
-  if (user.tokens) {
-    out.accessToken = user.tokens.accessToken;
-    out.refreshToken = user.tokens.refreshToken;
+
+  // Se abbiamo i token (registrazione/login), li aggiungiamo alla risposta
+  if (tokens) {
+    normalizedUser.accessToken = tokens.accessToken;
+    normalizedUser.refreshToken = tokens.refreshToken;
   }
-  return out;
+
+  return normalizedUser;
 };
+
+export default userNormalizer;

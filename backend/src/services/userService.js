@@ -1,12 +1,13 @@
 import userRepository from "../repository/userRepository.js";
 import NotFoundException from "../exceptions/NotFoundException.js";
 
-const getUserProfile = async (id) => {
+const getUserById = async (id) => {
   const user = await userRepository.findUserById(id);
   if (!user) {
     throw new NotFoundException(`L'utente con ID ${id} non è stato trovato`);
   }
+  //console.log("USER su SERVICE -> ", user);
   return user;
 };
 
-export default { getUserProfile };
+export default { getUserById };

@@ -8,7 +8,7 @@ const userSchema = new Schema(
     //salt: {type: String, required: true},
     //status: {type: String, default: "active"},
     //registrationToken: {type: String, required: true},
-    refreshTokens: [{ type: String }], // Salviamo i Refresh Token attivi
+    refreshTokens: { type: [String], default: [] }, // Salviamo i Refresh Token attivi
     isAdmin: { type: Boolean, default: false },
   },
   {

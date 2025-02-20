@@ -63,9 +63,50 @@ const findUserByRefreshToken = async (refreshToken) => {
  * @returns {Promise<User|null>} - L'utente aggiornato o null se non trovato
  */
 const removeRefreshToken = async (userId, refreshToken) => {
-  return await User.findByIdAndUpdate(userId, {
-    $pull: { refreshTokens: refreshToken }, // Rimuove solo il token specificato
-  });
+  console.log("🔹 Rimozione token per utente:", userId, "Token:", refreshToken); // 🔥 Debug
+
+  // 🔹 Controlliamo se il refreshToken è effettivamente presente prima di rimuoverlo
+  const user = await User.findById(userId);
+  if (!user) {
+    console.log("❌ Utente non trovato!");
+    throw new Error("Utente non trovato");
+  }
+
+  console.log("🔹 Refresh tokens PRIMA della rimozione:", user.refreshTokens);
+
+  // 🔹 Se refreshTokens non è un array, lo reimpostiamo come array vuoto
+  if (!Array.isArray(user.refreshTokens)) {
+    console.log("❌ refreshTokens non è un array! Resetto a []");
+    await User.findByIdAndUpdate(userId, { refreshTokens: [] });
+    return;
+  }
+
+  // 🔹 Rimuoviamo il token se è presente
+  const updatedUser = await User.findByIdAndUpdate(
+    userId,
+    { $pull: { refreshTokens: refreshToken } },
+    { new: true }
+  );
+
+  console.log(
+    "🔹 Refresh tokens DOPO la rimozione:",
+    updatedUser.refreshTokens
+  );
+
+  return updatedUser;
+};
+
+/**
+ * 🔹 Rimuove tutti i refresh token di un utente (logout completo da tutti i dispositivi)
+ * @param {string} userId - L'ID dell'utente
+ * @returns {Promise<User|null>} - L'utente aggiornato o null se non trovato
+ */
+const clearRefreshTokens = async (userId) => {
+  return await User.findByIdAndUpdate(
+    userId,
+    { $set: { refreshTokens: [] } }, // Pulisce tutti i token
+    { new: true }
+  );
 };
 
 export default {
@@ -75,4 +116,5 @@ export default {
   setRefreshToken,
   findUserByRefreshToken,
   removeRefreshToken,
+  clearRefreshTokens,
 };

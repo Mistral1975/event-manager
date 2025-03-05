@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import eventRoutes from "./routes/eventRoutes.js";
+import bookingRoutes from "./routes/bookingRoutes.js";
 import errorMiddleware from "./middleware/errorMiddleware.js";
 
 // Creiamo l'istanza dell'app Express
@@ -21,6 +22,7 @@ app.use(
 // Definiamo le rotte
 app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
+app.use("/api/booking", bookingRoutes);
 
 // Middleware globale per la gestione degli errori
 app.use(errorMiddleware);

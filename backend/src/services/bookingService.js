@@ -70,7 +70,7 @@ const cancelBooking = async (userId, bookingId) => {
 
   // Se la prenotazione è già cancellata, non modificare i posti disponibili
   if (booking.status === "cancelled") {
-    //return booking; // Restituisce direttamente la prenotazione senza aggiornare i posti
+    return booking; // Restituisce direttamente la prenotazione senza aggiornare i posti
     /*throw new DomainException(
       "La prenotazione è già stata cancellata",
       400 // Codice 400 per segnalare una richiesta non valida

@@ -1,3 +1,4 @@
+// src/config.js
 import dotenv from "dotenv";
 import { privateKey, publicKey } from "./keys.js";
 

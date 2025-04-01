@@ -1,3 +1,4 @@
+// src/exceptions/UnauthorizedExceptions.js
 import DomainException from "./DomainExceptions.js";
 
 class UnauthorizedException extends DomainException {

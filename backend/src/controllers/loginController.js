@@ -1,3 +1,4 @@
+// src/controllers/loginController.js
 import loginService from "../services/loginService.js";
 
 const loginController = async (req, res) => {

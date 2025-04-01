@@ -1,3 +1,4 @@
+// src/controllers/eventController.js
 import eventService from "../services/eventService.js";
 
 /**

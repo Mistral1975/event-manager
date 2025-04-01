@@ -1,4 +1,4 @@
-//import bookingSchema from "../schema/bookingSchema";
+// src/repository/bookingRepository.js
 import Booking from "../schema/bookingSchema.js";
 
 /**

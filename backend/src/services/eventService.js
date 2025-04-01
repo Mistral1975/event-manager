@@ -1,3 +1,4 @@
+// src/services/eventService.js
 import eventRepository from "../repository/eventRepository.js";
 import DomainException from "../exceptions/DomainExceptions.js";
 import UnauthorizedException from "../exceptions/UnauthorizedException.js";

@@ -1,3 +1,4 @@
+// src/services/registerService.js
 import userRepository from "../repository/userRepository.js";
 import cryptoUtils from "../utils/cryptoUtils.js";
 import UserAlreadyExistsException from "../exceptions/userAlreadyExistsException.js";

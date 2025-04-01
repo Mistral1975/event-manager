@@ -4,7 +4,7 @@
 import Navbar from "../../components/Navbar.js";
 import EventCard from "../../components/EventCard.js";
 import { useEffect, useState } from "react";
-import { fetchEvents } from "@/services/eventService.js";
+import { fetchEvents } from "../../services/eventService.js";
 
 // Creo un array con due oggetti che rappresentano due eventi
 /*const events = [

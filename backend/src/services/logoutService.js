@@ -1,3 +1,4 @@
+// src/services/logoutService.js
 import userRepository from "../repository/userRepository.js";
 import UnauthorizedException from "../exceptions/UnauthorizedException.js";
 import tokenService from "./tokenService.js";

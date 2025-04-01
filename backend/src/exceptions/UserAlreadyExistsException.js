@@ -1,3 +1,4 @@
+// src/exceptions/UserAlreadyExistsExceptions.js
 import DomainException from "./DomainExceptions.js";
 
 class UserAlreadyExistsException extends DomainException {

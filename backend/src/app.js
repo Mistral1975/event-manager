@@ -1,3 +1,4 @@
+// src/app.js
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
@@ -19,7 +20,7 @@ app.use(
   })
 );
 
-// Definiamo le rotte
+// Definiamo le rotte principali
 app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api/booking", bookingRoutes);

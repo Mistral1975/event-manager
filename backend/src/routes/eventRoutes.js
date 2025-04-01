@@ -1,3 +1,4 @@
+// src/routes/eventRoutes.js
 import express from "express";
 import eventController from "../controllers/eventController.js";
 import authMiddleware from "../middleware/authMiddleware.js";

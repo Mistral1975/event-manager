@@ -1,3 +1,4 @@
+// src/routes/bookingRoutes.js
 import express from "express";
 import bookingController from "../controllers/bookingController.js";
 import authMiddleware from "../middleware/authMiddleware.js";

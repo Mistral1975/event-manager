@@ -1,3 +1,4 @@
+// src/exceptions/MongoInternalExceptions.js
 import DomainException from "./DomainExceptions.js";
 
 class MongoInternalException extends DomainException {

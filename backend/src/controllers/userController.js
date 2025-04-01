@@ -1,3 +1,4 @@
+// src/controllers/userController.js
 import userService from "../services/userService.js";
 import userNormalizer from "../normalizer/userNormalizer.js";
 

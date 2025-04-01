@@ -1,3 +1,4 @@
+// src/controllers/registerController.js
 //import { register } from "../services/registerService.js";
 import registerService from "../services/registerService.js";
 import userNormalizer from "../normalizer/userNormalizer.js";

@@ -1,3 +1,4 @@
+// src/middleware/errorMiddleware.js
 const errorMiddleware = (err, req, res, next) => {
   if (err && err.error && err.error.isJoi) {
     return res.status(400).json({

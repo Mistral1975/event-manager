@@ -1,3 +1,4 @@
+// src/schema/bookingSchema.js
 import mongoose, { Schema, model } from "mongoose";
 
 const bookingSchema = new Schema(

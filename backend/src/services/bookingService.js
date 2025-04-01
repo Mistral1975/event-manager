@@ -1,3 +1,4 @@
+// src/services/bookingService.js
 import bookingRepository from "../repository/bookingRepository.js";
 import eventRepository from "../repository/eventRepository.js";
 import DomainException from "../exceptions/DomainExceptions.js";

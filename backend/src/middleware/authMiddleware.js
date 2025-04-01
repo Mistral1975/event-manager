@@ -1,3 +1,4 @@
+// src/middleware/authMiddleware.js
 import tokenService from "../services/tokenService.js";
 
 const authMiddleware = (req, res, next) => {

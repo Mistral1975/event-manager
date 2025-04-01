@@ -1,3 +1,4 @@
+// src/validators/loginValidator.js
 import Joi from "joi";
 import { createValidator } from "express-joi-validation";
 

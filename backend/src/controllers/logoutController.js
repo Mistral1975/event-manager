@@ -1,3 +1,4 @@
+// src/controllers/logoutController.js
 import logoutService from "../services/logoutService.js";
 import DomainException from "../exceptions/DomainExceptions.js";
 

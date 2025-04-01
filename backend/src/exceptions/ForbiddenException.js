@@ -1,3 +1,4 @@
+// src/exceptions/ForbiddenExceptions.js
 import DomainException from "./DomainExceptions.js";
 
 class ForbiddenException extends DomainException {

@@ -1,3 +1,4 @@
+// src/normalizer/userNormalizer.js
 const userNormalizer = (user, tokens = null) => {
   const normalizedUser = {
     _id: user._id,

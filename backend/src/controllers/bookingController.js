@@ -1,3 +1,4 @@
+// src/controllers/bookingController.js
 import bookingService from "../services/bookingService.js";
 
 /**

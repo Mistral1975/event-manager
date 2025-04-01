@@ -1,3 +1,4 @@
+// src/repository/userRepository.js
 import User from "../schema/userSchema.js";
 
 /**
